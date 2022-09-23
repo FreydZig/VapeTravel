@@ -28,7 +28,9 @@ const Brand = sequelize.define('brand', {
 const Product = sequelize.define('product', {
     id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING},
-    description: {type: DataTypes.STRING}
+    description: {type: DataTypes.STRING},
+    price: {type: DataTypes.INTEGER},
+    img: {type: DataTypes.STRING}
 })
 
 const ProductsShops = sequelize.define('products_shops', {
