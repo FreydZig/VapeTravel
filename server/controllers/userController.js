@@ -50,8 +50,8 @@ class UserController{
     };
 
     async check(req, res, next){
-
-        res.json({message: 'Work!'});
+        const token = generateJwt(req.user.id, req.user.login, req.user.first_name, req.user.last_name);
+        return res.json({token});
     };
 }
 
