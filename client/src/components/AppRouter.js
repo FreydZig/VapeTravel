@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Routes ,Route, Navigate} from 'react-router-dom';
 //import {authRoutes, publicRoutes} from "../routes";
 import {ADMIN_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PRODUCT_ROUTE, REGISTRATION_ROUTE} from "../utils/const";
@@ -6,13 +6,15 @@ import Admin from "../pages/Admin";
 import Shop from "../pages/Shop";
 import Auth from "../pages/Auth";
 import ProductPage from "../pages/ProductPage";
+import {Context} from "../index";
 
 const AppRouter = () => {
-    const isAuth = true;
+    const {user} = useContext(Context);
+    console.log(user)
     return (
         <Routes>
 
-            {isAuth && <Route path={ADMIN_ROUTE} element={<Admin/>}/>}
+            {user.isAuth && <Route path={ADMIN_ROUTE} element={<Admin/>}/>}
 
             <Route path={MAIN_ROUTE} element={<Shop/>}/>
             <Route path={LOGIN_ROUTE} element={<Auth/>}/>
