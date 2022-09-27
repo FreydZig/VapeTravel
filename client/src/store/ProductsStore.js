@@ -10,7 +10,8 @@ export default class ProductsStore{
         ];
         this._brands = [
             {id: 1, name: 'BName 1'},
-            {id: 2, name: 'BName 2'}
+            {id: 2, name: 'BName 2'},
+            {id: 3, name: 'BName 3'}
         ];
         this._products = [
             {id: 1, name: 'BName 1', description: 'fasfsa', price: 2223, img: 'https://img2.goodfon.ru/original/3694x2463/6/9a/evropeyskaya-koshka-dikiy-kot.jpg'},
@@ -18,6 +19,7 @@ export default class ProductsStore{
         ];
 
         this._selectedType = {};
+        this._selectedBrand = {};
         makeAutoObservable(this);
     }
 
@@ -37,6 +39,10 @@ export default class ProductsStore{
         this._selectedType = type;
     }
 
+    setSelectedBrand(brand){
+        this._selectedBrand = brand;
+    }
+
     get types(){
         return this._types;
     }
@@ -51,5 +57,9 @@ export default class ProductsStore{
 
     get selectedType(){
         return this._selectedType
+    }
+
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }
