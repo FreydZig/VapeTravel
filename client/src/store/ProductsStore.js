@@ -4,7 +4,9 @@ export default class ProductsStore{
     constructor() {
         this._types = [
             {id: 1, name: 'Name 1'},
-            {id: 2, name: 'Name 2'}
+            {id: 2, name: 'Name 2'},
+            {id: 3, name: 'Name 3'},
+            {id: 4, name: 'Name 4'},
         ];
         this._brands = [
             {id: 1, name: 'BName 1'},
@@ -14,6 +16,8 @@ export default class ProductsStore{
             {id: 1, name: 'BName 1', description: 'fasfsa', price: 2223, img: 'https://img2.goodfon.ru/original/3694x2463/6/9a/evropeyskaya-koshka-dikiy-kot.jpg'},
             {id: 2, name: 'pName 2', description: 'fasfsa', price: 2223, img: 'https://wallpapersgood.ru/wallpapers/main/201128/koshka-kot-polosatyy-b0b9c75.jpg'}
         ];
+
+        this._selectedType = {};
         makeAutoObservable(this);
     }
 
@@ -29,6 +33,10 @@ export default class ProductsStore{
         this._products = products;
     }
 
+    setSelectedType(type){
+        this._selectedType = type;
+    }
+
     get types(){
         return this._types;
     }
@@ -39,5 +47,9 @@ export default class ProductsStore{
 
     get products(){
         return this._products;
+    }
+
+    get selectedType(){
+        return this._selectedType
     }
 }
